@@ -21,7 +21,7 @@ Dos evaluaciones independientes que se suman:
 
 ## B · Disciplina de ejecución — 30 puntos (automática, desde Git)
 
-Se calcula con [`scripts/metricas.sh`](scripts/metricas.sh). No la juzga nadie: sale del historial.
+La calcula un script a partir del historial de Git. No la juzga nadie: sale de los commits.
 
 | Criterio | Pts | Cómo se calcula |
 |---|---|---|
