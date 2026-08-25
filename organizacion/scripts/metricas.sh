@@ -70,8 +70,10 @@ forks=$(gh api "repos/$REPO/forks?per_page=100" --paginate --jq '.[].owner.login
 prs_total=$(wc -l < "$TMP/prs.tsv" | tr -d ' ')
 prs_merged=$(jq -r '[.[] | select(.mergedAt != null)] | length' "$TMP/prs.json")
 prs_iteraron=$(awk -F'\t' '$5=="sí"' "$TMP/prs.tsv" | wc -l | tr -d ' ')
-participantes=$(gh api "repos/$REPO/contents/participantes" \
-  --jq '[.[] | select(.name | endswith(".md")) | select(.name != "README.md")] | length' 2>/dev/null || echo 0)
+canvas=$(gh api "repos/$REPO/git/trees/HEAD?recursive=1" \
+  --jq '[.tree[] | select(.path | test("^ideas/.+/lean-canvas\\.md$")) | select(.path | contains("equipo-00-ejemplo") | not)] | length' 2>/dev/null || echo 0)
+pitch=$(gh api "repos/$REPO/git/trees/HEAD?recursive=1" \
+  --jq '[.tree[] | select(.path | test("^ideas/.+/pitch\\.md$")) | select(.path | contains("equipo-00-ejemplo") | not)] | length' 2>/dev/null || echo 0)
 
 echo
 echo "═══════════════════════════════════════════════════════════"
@@ -79,12 +81,13 @@ echo "  REPORTE DEL IDEATHON — $REPO"
 echo "  generado: $(date '+%Y-%m-%d %H:%M')"
 echo "═══════════════════════════════════════════════════════════"
 echo
-printf "  M1  Participantes con archivo propio ....... %s\n" "$participantes"
 printf "  M2  Forks del repo ........................ %s\n" "$forks"
 printf "  M3  Commits totales (main + PRs) .......... %s\n" "$total_commits"
 printf "  M4  Pull Requests abiertos ................ %s\n" "$prs_total"
 printf "  M5  Pull Requests mergeados ............... %s\n" "$prs_merged"
 printf "  M6  Equipos que iteraron tras el review ... %s\n" "$prs_iteraron"
+printf "  M7  Lean Canvas en ideas/ ................. %s\n" "$canvas"
+printf "  M7b Pitch en ideas/ ....................... %s\n" "$pitch"
 printf "  M8  Autores únicos ........................ %s  (con 2+ commits: %s)\n" "$autores_unicos" "$con_2mas"
 echo
 echo "───────────────────────────────────────────────────────────"
@@ -98,6 +101,5 @@ echo "────────────────────────�
 printf "  %-5s %-8s %-20s %-8s %-8s %s\n" "PR" "ESTADO" "AUTOR" "COMMITS" "ITERÓ" "TÍTULO"
 awk -F'\t' '{printf "  #%-4s %-8s %-20s %-8s %-8s %s\n", $1, $2, $3, $4, $5, $6}' "$TMP/prs.tsv"
 echo
-echo "  Evidencia Testnet (M7): revisar 'evidencia.md' de cada equipo"
-echo "  gh api repos/$REPO/contents/ideas --jq '.[].name'"
+echo "  Carpetas en ideas/: gh api repos/$REPO/contents/ideas --jq '.[].name'"
 echo

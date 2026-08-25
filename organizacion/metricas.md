@@ -35,17 +35,16 @@ flowchart LR
 | ID | Métrica | Qué demuestra | Cómo se mide | Meta |
 |---|---|---|---|---|
 | **M0** | Cuenta de GitHub creada y verificada | Onboarding completado | Registro de asistencia con usuario de GitHub | 100 % |
-| **M1** | **Primer commit individual** | Cada persona contribuyó con su nombre | 1 archivo en `participantes/` por usuario | **100 % de asistentes** |
-| **M2** | Fork del repo | El equipo entró al flujo de trabajo | `gh api repos/O/R/forks` | 1 por equipo |
-| **M3** | ≥ 4 commits del equipo | Trabajo distribuido en el día, no volcado al final | Commits en la rama del PR | 100 % de equipos |
+| **M1** | **Primer commit del equipo** | El equipo entró al flujo | Archivo en `ideas/equipo-XX/` | 100 % de equipos |
+| **M2** | Fork del repo | El equipo trabaja sobre una copia, no sobre el original | `gh api repos/O/R/forks` | 1 por equipo |
+| **M3** | Commits en el día | Trabajo durante la jornada, no volcado al final | Commits en la rama del PR | 100 % de equipos |
 | **M4** | Pull Request abierto | Entregable propuesto formalmente | `gh pr list` | 1 por equipo |
-| **M5** | **PR mergeado** | Entregable completo y aprobado | `gh pr list --state merged` | ≥ 80 % de equipos |
-| **M6** | Commit posterior al review | Capacidad de iterar con retroalimentación | Commits con fecha > primer comentario de review | ≥ 50 % de equipos |
-| **M7** | **Demo publicada en GitHub Pages** | El equipo produjo algo que se puede usar, no solo leer | URL viva en `evidencia.md` + carpeta `demo/` en el PR | **100 % de equipos** |
-| **M9** | Evidencia en Testnet (bonus) | Ejecución técnica real | Hash de tx o contract ID en `evidencia.md` | ≥ 30 % de equipos |
-| **M8** | Personas distintas como autoras | Que no commitee solo "el técnico" del equipo | Autores únicos en el historial | ≥ 60 % de asistentes con 2+ commits |
+| **M5** | **PR mergeado** | Lean Canvas recibido | `gh pr list --state merged` | ≥ 80 % de equipos |
+| **M6** | Commit posterior al review | Capacidad de iterar | Commits con fecha > primer comentario de review | ≥ 50 % de equipos |
+| **M7** | **Canvas y pitch en la carpeta** | Hipótesis y guion | `lean-canvas.md` y `pitch.md` | **100 % de equipos** |
+| **M8** | Personas distintas como autoras | Que no commitee solo una persona | Autores únicos en el historial | ≥ 60 % de asistentes con 1+ commit |
 
-**Reporte final para CANACINTRA:** asistentes, cuentas creadas, commits totales, autores únicos, PRs abiertos/mergeados, **demos publicadas con su URL** y % de equipos con evidencia de Testnet. Todo verificable públicamente en el historial de un repo — es una métrica auditable, no una encuesta de satisfacción.
+**Reporte final para CANACINTRA:** asistentes, forks, commits, autores únicos, PRs abiertos/mergeados y Lean Canvas recibidos. Todo verificable en el historial del repo.
 
 ---
 
@@ -66,7 +65,7 @@ Co-authored-by: Nombre <usuario@users.noreply.github.com>
 Co-authored-by: Otro Nombre <otro@users.noreply.github.com>
 ```
 
-GitHub muestra a los coautores en el commit. Nota: los coautores aparecen en la interfaz del commit, pero **no** cuentan como autor en la API de commits, así que la métrica M1 sigue apoyándose en el archivo individual de `participantes/` — que es la razón por la que ese ritual existe.
+GitHub muestra a los coautores en el commit. La métrica de autoría se toma de los logins en el historial del PR.
 
 ---
 
@@ -103,11 +102,7 @@ gh api "repos/$REPO/pulls/<N>/commits" --jq '.[].author.login' | sort | uniq -c
 gh api "repos/$REPO/forks?per_page=100" --paginate --jq '.[].owner.login' | sort -u | wc -l
 ```
 
-### 3. Las demos se publican desde el fork, no desde el repo principal
-
-Cada equipo activa GitHub Pages en **su propio fork** (*Settings → Pages → `main` / `(root)`*), así tienen URL viva antes del merge y antes del pitch. Una vez mergeado el PR, la misma demo queda también bajo el repo principal, que es la copia permanente.
-
-> **Sobre los forks:** mientras el PR no se mergea, los commits viven en el fork y **no** aparecen en el historial del repo principal ni en la gráfica de contribuciones del upstream. Por eso M3 se mide sobre `pulls/<N>/commits` y no sobre `commits` de main. Al mergear (con merge commit), esos commits sí entran al historial principal con su autor original.
+> **Sobre los forks:** mientras el PR no se mergea, los commits viven en el fork y **no** aparecen en el historial del repo principal. Por eso M3 se mide sobre `pulls/<N>/commits` y no sobre `commits` de main. Al mergear (con merge commit), esos commits sí entran al historial principal con su autor original.
 
 ---
 

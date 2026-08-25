@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelo de negocio y unit economics</title>
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<nav class="bar">
+  <a href="index.html">Programa</a>
+  <span class="mid">Modelo de negocio · unit economics</span>
+  <span id="pos"></span>
+</nav>
+
+<article class="slide on">
+  <p class="eyebrow">Modelo de negocio · 50 minutos</p>
+  <h1>Quién paga,<br>cuánto,<br>y por qué ahora</h1>
+  <p class="lede">Un canvas sin números es un póster. El jurado pregunta por el margen.</p>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Definición de trabajo</p>
+  <h2>El modelo es cómo el valor se vuelve cobro</h2>
+  <p>No es el producto. No es la red. No es “monetizaremos después”.</p>
+  <p>Es la respuesta encadenada a cinco cosas: <strong>quién recibe el valor, quién paga, a qué precio, contra qué alternativa, y qué queda después de entregar una operación</strong>.</p>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">La pregunta que ordena el bloque</p>
+  <p class="bigtime">¿Quién firma<br>el cheque?</p>
+  <p>Si la respuesta es “el usuario”, hay que volver al canvas. En industria, quien opera el flujo y quien autoriza el gasto casi nunca son la misma persona.</p>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Cliente, usuario, pagador · en el cobro</p>
+  <div class="grid">
+    <div class="card"><b>El proveedor</b><span>Paga para cobrar antes. Típico en factoraje y adelanto de factura.</span></div>
+    <div class="card"><b>El comprador / OEM</b><span>Paga para ordenar su cadena: nómina, dispersión, trazabilidad, membresía B2B.</span></div>
+    <div class="card"><b>El intermediario actual</b><span>A veces el negocio es sustituirlo; a veces es venderle a él. Hay que elegir.</span></div>
+    <div class="card"><b>Un tercero</b><span>Aseguradora, certificador, inversionista. Solo si su incentivo está escrito, no supuesto.</span></div>
+  </div>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Cuatro modelos que caben en esta sala</p>
+  <h2>Uno principal. El resto es ruido.</h2>
+  <div class="grid">
+    <div class="card"><b>Comisión por transacción</b><span>Puntos básicos sobre el monto. Clara y comparable. Se cae si es más cara que SPEI sin un ahorro de tiempo o riesgo que lo justifique.</span></div>
+    <div class="card"><b>Suscripción por empresa</b><span>Cuota mensual. Sirve cuando hay uso frecuente y un campeón interno. No sirve si el cliente compra “una vez al trimestre”.</span></div>
+    <div class="card"><b>Diferencial cambiario</b><span>El ingreso está en el spread al convertir. Hay que compararlo con el banco y el centro cambiario, no con cero.</span></div>
+    <div class="card"><b>Fee de originación</b><span>Porcentaje al adelantar una factura o un crédito. Paga quien recibe la liquidez. El fondeador lleva otro rendimiento, aparte.</span></div>
+  </div>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Precio</p>
+  <h2>Siempre contra la alternativa, nunca contra el vacío</h2>
+  <div class="pair">
+    <div class="box no">
+      <div class="lbl">No se sostiene</div>
+      <p>Cobramos 1 %. Es barato y disruptivo.</p>
+    </div>
+    <div class="box yes">
+      <div class="lbl">Se puede discutir</div>
+      <p>Hoy paga 2 a 4 % entre spread y comisión, y espera 3 días. Nuestra comisión es 80 bps y liquida en minutos. En 50 mil USD ahorra cerca de 1,200 USD por operación.</p>
+    </div>
+  </div>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Unit economics</p>
+  <h2>Una operación, no el año cinco</h2>
+  <p>Unit economics es el margen de <em>una</em> unidad de cobro: una transferencia, un adelanto, una membresía mensual. Si esa unidad no deja margen, el volumen no lo arregla: lo multiplica.</p>
+  <table>
+    <thead><tr><th>Concepto</th><th>Pregunta que responde</th></tr></thead>
+    <tbody>
+      <tr><td>Ingreso por operación</td><td>¿Cuánto entra cuando el hecho ocurre una vez?</td></tr>
+      <tr><td>− Fee de red Stellar</td><td>Fracciones de centavo. No es el negocio ni el costo.</td></tr>
+      <tr><td>− On / off ramp</td><td>¿Cuánto cuesta entrar y salir a pesos?</td></tr>
+      <tr><td>− Operación y soporte</td><td>¿Quién atiende al tesorero a las seis de la tarde?</td></tr>
+      <tr><td>− Cumplimiento</td><td>¿KYC, CFDI, contrato, auditoría?</td></tr>
+      <tr><td><strong>= Margen de contribución</strong></td><td>Si es cero o negativo, el modelo no existe todavía.</td></tr>
+    </tbody>
+  </table>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">El costo que define el negocio</p>
+  <p class="bigtime">No es la red.<br>Es salir a pesos.</p>
+  <p>Ancla, conversión, cumplimiento. En Stellar el riel es barato a propósito. Omitir el on/off ramp convierte un margen decente en un número de ficción.</p>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Ejemplo numérico</p>
+  <h2>Adelanto de 500,000 MXN</h2>
+  <table>
+    <thead><tr><th>Concepto</th><th>Monto</th></tr></thead>
+    <tbody>
+      <tr><td>Ingreso: 1.2 % de originación</td><td class="t">6,000 MXN</td></tr>
+      <tr><td>Fee de red Stellar</td><td class="t">&lt; 1 MXN</td></tr>
+      <tr><td>Ancla / on-off ramp, 0.5 %</td><td class="t">2,500 MXN</td></tr>
+      <tr><td>Verificación de CFDI y soporte</td><td class="t">800 MXN</td></tr>
+      <tr><td><strong>Margen de contribución</strong></td><td class="t">≈ 2,700 MXN</td></tr>
+    </tbody>
+  </table>
+  <p class="note">0.54 % por operación. Feo, pequeño y defendible. Eso se puede llevar a una junta. Un 40 % “porque blockchain es eficiente” no.</p>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Cómo leer ese margen</p>
+  <h2>Tres pruebas rápidas</h2>
+  <ul>
+    <li><strong>¿Cubre el costo de adquirir al siguiente cliente?</strong> Si cada venta nueva cuesta más que el margen de las primeras operaciones, el piloto enseña, pero no escala.</li>
+    <li><strong>¿Sigue en pie si el ancla sube 20 pb?</strong> El riel no se mueve; el socio de conversión sí.</li>
+    <li><strong>¿El cliente percibe el ahorro?</strong> 2,700 MXN de margen propio no importan si el proveedor no ve diferencia frente al banco.</li>
+  </ul>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Mercado</p>
+  <h2>De abajo hacia arriba</h2>
+  <p style="font-family:var(--font-display);letter-spacing:0.04em;text-transform:uppercase;color:var(--gold-light);max-width:none;">
+    empresas alcanzables × operaciones al mes × ticket × comisión
+  </p>
+  <div class="pair">
+    <div class="box no">
+      <div class="lbl">Arriba hacia abajo</div>
+      <p>El 1 % de un mercado de 40 mil millones. No se puede auditar. No se puede defender línea por línea.</p>
+    </div>
+    <div class="box yes">
+      <div class="lbl">Abajo hacia arriba</div>
+      <p>400 proveedores vía CANACINTRA Bajío × 2 operaciones/mes × 500 mil × 1.2 % = 4.8 MDP/mes a saturación. Año 1 al 5 %: 240 mil al mes.</p>
+    </div>
+  </div>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Play de playa</p>
+  <h2>CANACINTRA es canal, no mercado</h2>
+  <ul>
+    <li>No se escribe “todas las socias de la cámara”.</li>
+    <li>Se escribe esta vertical, esta delegación, este rango de empleados, este tipo de factura o de pago.</li>
+    <li>Un nombre de empresa vale más que un TAM. El jurado de industria lo nota en segundos.</li>
+  </ul>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Por qué ahora</p>
+  <h2>Qué cambió y no existía hace cinco años</h2>
+  <div class="grid">
+    <div class="card"><b>Nearshoring</b><span>Más pedidos sobre el mismo capital de trabajo. El dolor de liquidez dejó de ser anecdótico.</span></div>
+    <div class="card"><b>Rieles operativos</b><span>Stablecoins y anclas con entrada y salida en México. Hace un lustro era un paper.</span></div>
+    <div class="card"><b>Costo y tiempo</b><span>Lo que el corresponsal no puede ofrecer sin una cadena de bancos intermedios.</span></div>
+    <div class="card"><b>Regulación</b><span>Hay que nombrarla: Ley Fintech, cesión de derechos, PLD. Esconderla es un riesgo, no una estrategia.</span></div>
+  </div>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Riesgo</p>
+  <h2>El número uno, con mitigación</h2>
+  <p>Todo modelo tiene un riesgo que, si se materializa, mata el piloto. Se elige uno y se dice cómo se ataja. Nombrarlo suma; esconderlo se nota en el minuto de preguntas.</p>
+  <div class="grid">
+    <div class="card"><b>Regulatorio</b><span>¿Están ofreciendo un valor, un crédito, una captación? Cada uno tiene figura.</span></div>
+    <div class="card"><b>Adopción</b><span>El tesorero ya tiene un proceso. ¿Qué dolor justifica cambiarlo este trimestre?</span></div>
+    <div class="card"><b>Dependencia</b><span>Si el ancla se cae o sube de precio, ¿el margen sobrevive?</span></div>
+    <div class="card"><b>Contraparte</b><span>Si el OEM no paga, ¿quién absorbe? El riel no elimina el riesgo crediticio.</span></div>
+  </div>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">El lunes</p>
+  <p class="bigtime">Una empresa.<br>Un nombre.<br>Una petición.</p>
+  <p>No “explorar el mercado”. Una factura real, una entrevista de treinta minutos, un tesorero concreto, un número de operaciones del mes pasado.</p>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Diseño del piloto</p>
+  <h2>Qué se pide, qué no se promete</h2>
+  <ul>
+    <li>Un caso real, acotado: una factura, una dispersión, un lote, un cruce de frontera.</li>
+    <li>Un criterio de éxito medible en semanas, no en “transformación digital”.</li>
+    <li>Sin dinero de clientes en la primera corrida, si todavía no hay figura ni ancla.</li>
+    <li>Una persona del lado de la empresa que pueda decir que sí o que no.</li>
+  </ul>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Preguntas que van a aparecer</p>
+  <h2>Si no están en el canvas, salen en el pitch</h2>
+  <ul>
+    <li>¿Por qué abandonaría su proceso actual?</li>
+    <li>¿Cuánto tiene que costar la operación para que exista margen?</li>
+    <li>¿Quién opera la conversión a pesos?</li>
+    <li>Si lo hicieran con SPEI y una base de datos, ¿qué se pierde exactamente?</li>
+    <li>¿Quién, dentro de la empresa, firma este contrato?</li>
+  </ul>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Taller</p>
+  <h2>Pasar los números al canvas</h2>
+  <ol class="steps">
+    <li>Quién paga, modelo y precio contra la alternativa.</li>
+    <li>Unit economics de una operación, con on/off ramp escrito.</li>
+    <li>Mercado: empresas × operaciones × ticket × comisión, y un año 1 honesto.</li>
+    <li>Riesgo número uno. Empresa piloto. Qué le pedirían el lunes.</li>
+  </ol>
+  <p class="note">Al terminar, las casillas 6 y 7 del canvas tienen cifras, no adjetivos.</p>
+</article>
+
+<script src="deck.js"></script>
+</body>
+</html>

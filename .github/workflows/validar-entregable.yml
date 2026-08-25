@@ -4,7 +4,6 @@ on:
   pull_request:
     paths:
       - 'ideas/**'
-      - 'participantes/**'
 
 jobs:
   validar:
@@ -12,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Revisar estructura del entregable
+      - name: Revisar canvas y pitch
         shell: bash
         run: |
           set -uo pipefail
-          REQUERIDOS=(01-problema.md 02-caso-uso.md 03-modelo.md 04-pitch.md evidencia.md)
+          REQUERIDOS=(lean-canvas.md pitch.md)
           errores=0
           avisos=0
 
@@ -26,33 +25,16 @@ jobs:
           echo >> "$GITHUB_STEP_SUMMARY"
 
           if [ -z "$equipos" ]; then
-            echo "⚠️ No se encontró ninguna carpeta en \`ideas/\`. ¿Creaste \`ideas/equipo-XX-tu-idea/\`?" >> "$GITHUB_STEP_SUMMARY"
+            echo "⚠️ No se encontró carpeta en \`ideas/\`. ¿Crearon \`ideas/equipo-XX-nombre-corto/\`?" >> "$GITHUB_STEP_SUMMARY"
             exit 1
           fi
 
           for dir in $equipos; do
             echo "## \`$dir\`" >> "$GITHUB_STEP_SUMMARY"
-
-            # --- la demo ---
-            if [ -f "$dir/demo/index.html" ]; then
-              if grep -q "Nombre de su idea" "$dir/demo/index.html"; then
-                echo "- ⚠️ \`demo/index.html\` — todavía tiene los textos de ejemplo de la plantilla" >> "$GITHUB_STEP_SUMMARY"
-                avisos=$((avisos+1))
-              else
-                echo "- ✅ \`demo/index.html\` — personalizada" >> "$GITHUB_STEP_SUMMARY"
-              fi
-              if grep -Eq '"S[A-Z2-7]{55}"|>S[A-Z2-7]{55}<' "$dir/demo/index.html"; then
-                echo "- 🚨 **\`demo/index.html\` parece contener una CLAVE SECRETA (S...). Quítenla ya: el repo es público.**" >> "$GITHUB_STEP_SUMMARY"
-                errores=$((errores+1))
-              fi
-            else
-              echo "- ❌ **falta \`demo/index.html\`** — copien \`plantillas/demo/index.html\`" >> "$GITHUB_STEP_SUMMARY"
-              errores=$((errores+1))
-            fi
-
             for f in "${REQUERIDOS[@]}"; do
-              if [ -f "$dir/$f" ]; then
-                pendientes=$(grep -c '<[^>]*>' "$dir/$f" || true)
+              path="$dir/$f"
+              if [ -f "$path" ]; then
+                pendientes=$(grep -c '<[^>]*>' "$path" || true)
                 if [ "$pendientes" -gt 0 ]; then
                   echo "- ⚠️ \`$f\` — quedan **$pendientes** campos \`<...>\` sin llenar" >> "$GITHUB_STEP_SUMMARY"
                   avisos=$((avisos+1))
@@ -67,21 +49,13 @@ jobs:
             echo >> "$GITHUB_STEP_SUMMARY"
           done
 
-          participantes=$(find participantes -name '*.md' ! -name 'README.md' | wc -l | tr -d ' ')
-          echo "## Participantes registrados" >> "$GITHUB_STEP_SUMMARY"
-          echo "- 👤 **$participantes** archivo(s) en \`participantes/\`" >> "$GITHUB_STEP_SUMMARY"
-          if [ "$participantes" -eq 0 ]; then
-            echo "- ⚠️ Ningún integrante creó su archivo individual (métrica M1)" >> "$GITHUB_STEP_SUMMARY"
-            avisos=$((avisos+1))
-          fi
-
           echo >> "$GITHUB_STEP_SUMMARY"
           if [ "$errores" -gt 0 ]; then
-            echo "### ❌ Hay $errores punto(s) que resolver — revisa la lista de arriba. Corrígelo en tu fork y el PR se actualiza solo." >> "$GITHUB_STEP_SUMMARY"
+            echo "### ❌ Falta canvas o pitch. Súbanlos en el fork y el Pull Request se actualiza solo." >> "$GITHUB_STEP_SUMMARY"
             exit 1
           fi
           if [ "$avisos" -gt 0 ]; then
-            echo "### ⚠️ Estructura completa, pero hay $avisos punto(s) por llenar. Se puede mergear; revísalo antes del pitch." >> "$GITHUB_STEP_SUMMARY"
+            echo "### ⚠️ Los archivos están, pero quedan campos por llenar." >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "### ✅ Entregable completo. ¡Listo para el review del mentor!" >> "$GITHUB_STEP_SUMMARY"
+            echo "### ✅ Lean Canvas y pitch en su carpeta." >> "$GITHUB_STEP_SUMMARY"
           fi

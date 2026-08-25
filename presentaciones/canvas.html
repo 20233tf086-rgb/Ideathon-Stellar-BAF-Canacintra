@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lean Canvas · llenable</title>
+<style>
+  :root {
+    --paper: #0B2140;
+    --raised: #123056;
+    --ink: #F6F0DE;
+    --faint: #C4B896;
+    --rule: #D4A017;
+    --stamp: #D4A017;
+    --steel: #7EB6D9;
+    --font-d: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-b: Georgia, "Times New Roman", Times, serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-b);
+  }
+  header {
+    padding: 1rem 1.2rem 0.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.2rem;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--stamp);
+  }
+  header h1 {
+    font-family: var(--font-d);
+    font-size: 1.25rem;
+    margin: 0;
+  }
+  header a { color: var(--steel); font-size: 0.9rem; }
+  .meta {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 0.4rem;
+    padding: 0.6rem 1.2rem;
+  }
+  .meta label {
+    font-family: var(--font-d);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--faint);
+    display: block;
+  }
+  .meta input, textarea {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    background: transparent;
+    font: inherit;
+    color: inherit;
+    padding: 0.2rem 0;
+  }
+  textarea {
+    border: 0;
+    resize: none;
+    min-height: 5.5rem;
+    outline: none;
+  }
+  .board {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1.15fr 1fr 1.1fr;
+    grid-template-rows: 1fr 1fr auto;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 0 1.2rem 1.2rem;
+    min-height: 78vh;
+  }
+  .cell {
+    background: var(--raised);
+    padding: 0.55rem 0.65rem 0.4rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .cell header {
+    border: 0;
+    padding: 0;
+    margin: 0 0 0.25rem;
+    display: flex;
+    gap: 0.4rem;
+    align-items: baseline;
+  }
+  .n {
+    font-family: var(--font-d);
+    color: var(--stamp);
+    font-size: 0.75rem;
+  }
+  .t {
+    font-family: var(--font-d);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .hint { font-size: 0.72rem; color: var(--faint); margin: 0 0 0.2rem; }
+  .cell textarea { flex: 1; min-height: 0; font-size: 0.95rem; line-height: 1.3; }
+  .problem { grid-column: 1; grid-row: 1 / 3; }
+  .solution { grid-column: 2; grid-row: 1; }
+  .metrics { grid-column: 2; grid-row: 2; }
+  .uvp { grid-column: 3; grid-row: 1 / 3; }
+  .unfair { grid-column: 4; grid-row: 1; }
+  .channels { grid-column: 4; grid-row: 2; }
+  .segments { grid-column: 5; grid-row: 1 / 3; }
+  .costs { grid-column: 1 / 4; grid-row: 3; min-height: 8.5rem; }
+  .revenue { grid-column: 4 / 6; grid-row: 3; min-height: 8.5rem; }
+  .uvp, .problem, .segments { background: #16345A; }
+  footer {
+    padding: 0 1.2rem 1.4rem;
+    font-size: 0.8rem;
+    color: var(--faint);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 900px) {
+    .board {
+      grid-template-columns: 1fr;
+      grid-template-rows: none;
+      min-height: 0;
+    }
+    .problem, .solution, .metrics, .uvp, .unfair, .channels, .segments, .costs, .revenue {
+      grid-column: 1;
+      grid-row: auto;
+    }
+    .meta { grid-template-columns: 1fr; }
+    textarea { min-height: 6rem; }
+  }
+  @media print {
+    header a, footer { display: none; }
+    .board { min-height: 88vh; margin: 0; }
+    body { background: white; }
+    textarea { overflow: hidden; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Lean Canvas · Ideathon Stellar × BAF × CANACINTRA</h1>
+  <a href="index.html">← Agenda</a>
+</header>
+<div class="meta">
+  <div>
+    <label>Equipo / idea</label>
+    <input type="text" placeholder="Nombre del equipo y de la propuesta">
+  </div>
+  <div>
+    <label>Vertical</label>
+    <input type="text" placeholder="Pagos · factoraje · trazabilidad…">
+  </div>
+  <div>
+    <label>Escribano</label>
+    <input type="text" placeholder="Quién escribe">
+  </div>
+</div>
+
+<div class="board">
+  <section class="cell problem">
+    <header><span class="n">2</span><span class="t">Problema</span></header>
+    <p class="hint">Contesten las preguntas. El dolor principal lleva pesos o días.</p>
+    <textarea placeholder="¿Cuáles son los tres dolores?
+¿Cuánto cuesta el principal, en pesos o en días?
+¿Cómo lo resuelven hoy y qué les cuesta esa alternativa?"></textarea>
+  </section>
+  <section class="cell solution">
+    <header><span class="n">4</span><span class="t">Solución</span></header>
+    <p class="hint">Un verbo por cada dolor.</p>
+    <textarea placeholder="¿Qué hacen, un verbo por cada dolor?
+Si usan Stellar, ¿qué pasa en la red y qué se queda fuera?"></textarea>
+  </section>
+  <section class="cell metrics">
+    <header><span class="n">8</span><span class="t">Métricas clave</span></header>
+    <p class="hint">Números del piloto, no de vanidad.</p>
+    <textarea placeholder="¿Qué dos números dirían si el piloto funciona?
+¿El cliente lo vuelve a usar sin que lo persigan?"></textarea>
+  </section>
+  <section class="cell uvp">
+    <header><span class="n">3</span><span class="t">Propuesta única de valor</span></header>
+    <p class="hint">Cómo lo diría el cliente, sin jerga.</p>
+    <textarea placeholder="¿Qué cambia para el cliente la semana que entra?
+¿Cómo lo diría él en una junta, sin jerga técnica?"></textarea>
+  </section>
+  <section class="cell unfair">
+    <header><span class="n">9</span><span class="t">Ventaja injusta</span></header>
+    <p class="hint">Qué no copian en 30 días.</p>
+    <textarea placeholder="¿Qué no puede copiar un competidor en 30 días?
+¿Qué tienen ustedes que no se improvisa en un mes?"></textarea>
+  </section>
+  <section class="cell channels">
+    <header><span class="n">5</span><span class="t">Canales</span></header>
+    <p class="hint">Los primeros diez, no el mercado entero.</p>
+    <textarea placeholder="¿Cómo llegan a los primeros diez clientes?
+¿Qué puerta ya existe: cámara, OEM, asociación?"></textarea>
+  </section>
+  <section class="cell segments">
+    <header><span class="n">1</span><span class="t">Segmentos de clientes</span></header>
+    <p class="hint">Industria, tamaño, ciudad. Quién usa y quién paga.</p>
+    <textarea placeholder="¿Quién es, con industria, tamaño y ciudad?
+¿Quién usa a diario? ¿Quién firma el cheque?
+¿Qué empresa sería la primera en probarlo?"></textarea>
+  </section>
+  <section class="cell costs">
+    <header><span class="n">7</span><span class="t">Estructura de costos</span></header>
+    <p class="hint">Una operación, incluido salir a pesos.</p>
+    <textarea placeholder="¿Qué cuesta entregar una sola operación?
+¿Cuánto sale convertir a pesos?
+¿Qué margen queda?"></textarea>
+  </section>
+  <section class="cell revenue">
+    <header><span class="n">6</span><span class="t">Flujos de ingreso</span></header>
+    <p class="hint">Quién paga y contra qué alternativa.</p>
+    <textarea placeholder="¿Quién paga?
+¿Comisión, suscripción, spread u originación?
+¿A qué precio, comparado con lo que ya pagan hoy?"></textarea>
+  </section>
+</div>
+<footer>
+  <span>Orden de llenado: 1 segmentos → 2 problema → 3 valor → 4 solución → 5 canales → 6 ingresos → 7 costos → 8 métricas → 9 ventaja.</span>
+  <span>Contesten las preguntas de cada casilla. Ctrl+P para imprimir. Se guarda en este navegador.</span>
+</footer>
+<script>
+  const KEY = "ideathon-lean-canvas-preguntas";
+  const fields = [...document.querySelectorAll("input, textarea")];
+  try {
+    const saved = JSON.parse(localStorage.getItem(KEY) || "[]");
+    fields.forEach((el, i) => { if (saved[i]) el.value = saved[i]; });
+  } catch (_) {}
+  const persist = () => localStorage.setItem(KEY, JSON.stringify(fields.map((el) => el.value)));
+  fields.forEach((el) => el.addEventListener("input", persist));
+</script>
+</body>
+</html>

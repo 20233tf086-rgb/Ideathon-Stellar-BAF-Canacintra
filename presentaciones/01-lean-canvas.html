@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lean Canvas</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+  .lean .slide { padding: 3.2rem 3.2rem 2.2rem; }
+  .lean .slide.board { padding: 2.85rem 1.1rem 0.9rem; }
+  .lean h1 { font-size: clamp(3rem, 7vw, 4.6rem); }
+  .lean h2 { font-size: clamp(2.1rem, 4.8vw, 3.1rem); }
+  .lean .eyebrow { font-size: 1.25rem; }
+  .lean p, .lean li { font-size: clamp(1.55rem, 2.7vw, 2rem); }
+  .lean p.lede { font-size: clamp(1.7rem, 3vw, 2.15rem); max-width: 28ch; }
+  .lean .note { font-size: 1.55rem; }
+  .lean .steps li { font-size: clamp(1.5rem, 2.5vw, 1.9rem); margin-bottom: 0.55rem; }
+  .lean .steps li::before { font-size: 1.5rem; }
+  .lean .canvas-head strong { font-size: 1.7rem; }
+  .lean .canvas-head span { font-size: 1.2rem; }
+  .lean .live { min-height: 72vh; gap: 4px; }
+  .lean .live > div { padding: 0.7rem 0.75rem; overflow: visible; }
+  .lean .live h3 { font-size: clamp(1.15rem, 1.8vw, 1.4rem); margin-bottom: 0.4rem; }
+  .lean .live ul, .lean .live p, .lean .live li {
+    font-size: clamp(1.2rem, 1.85vw, 1.5rem);
+    line-height: 1.28;
+  }
+  .lean .live .sub { font-size: clamp(1.05rem, 1.6vw, 1.3rem); }
+  .lean .live .sub b { font-size: 1.05rem; }
+</style>
+</head>
+<body class="lean">
+<nav class="bar">
+  <a href="index.html">Programa</a>
+  <span class="mid">Lean Canvas</span>
+  <span id="pos"></span>
+</nav>
+
+<article class="slide on">
+  <p class="eyebrow">Metodología</p>
+  <h1>Lean Canvas</h1>
+  <p class="lede">Una página con nueve bloques. Cada bloque se responde con preguntas, no con un caso ya resuelto.</p>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Para qué</p>
+  <h2>Antes de dibujar la solución</h2>
+  <p>El Lean Canvas (Ash Maurya, a partir del Business Model Canvas) sirve para dejar por escrito las apuestas de un negocio que todavía no existe.</p>
+  <p>No se llena con un ejemplo copiado. Se llena contestando, en orden, las preguntas de cada casilla.</p>
+</article>
+
+<article class="slide board">
+  <div class="canvas-head">
+    <strong>Lean Canvas</strong>
+    <span>Preguntas para definir cada bloque · se llena en este orden: 1 → 9</span>
+  </div>
+  <div class="live">
+    <div class="p">
+      <h3>2 · Problema</h3>
+      <ul>
+        <li>¿Cuáles son los tres dolores de ese cliente?</li>
+        <li>¿Cuánto le cuesta el principal, en pesos o en días?</li>
+      </ul>
+      <div class="sub"><b>Alternativa actual</b>¿Cómo lo resuelven hoy —Excel, SPEI, factoraje, intermediario, aguantarse— y qué les cuesta esa práctica?</div>
+    </div>
+    <div class="s">
+      <h3>4 · Solución</h3>
+      <ul>
+        <li>¿Qué hacen, un verbo por cada dolor?</li>
+        <li>Si usan Stellar, ¿qué pasa en la red y qué se queda fuera?</li>
+      </ul>
+    </div>
+    <div class="m">
+      <h3>8 · Métricas clave</h3>
+      <ul>
+        <li>¿Qué dos números dirían si el piloto funciona?</li>
+        <li>¿El cliente lo vuelve a usar sin que lo persigan?</li>
+      </ul>
+    </div>
+    <div class="u">
+      <h3>3 · Propuesta única de valor</h3>
+      <ul>
+        <li>¿Qué cambia para el cliente la semana que entra?</li>
+        <li>¿Cómo lo diría él en una junta, sin jerga técnica?</li>
+      </ul>
+    </div>
+    <div class="a">
+      <h3>9 · Ventaja injusta</h3>
+      <ul>
+        <li>¿Qué no puede copiar un competidor en 30 días?</li>
+        <li>¿Qué tienen ustedes que no se improvisa en un mes?</li>
+      </ul>
+    </div>
+    <div class="c">
+      <h3>5 · Canales</h3>
+      <ul>
+        <li>¿Cómo llegan a los primeros diez clientes?</li>
+        <li>¿Qué puerta ya existe: cámara, OEM, asociación?</li>
+      </ul>
+    </div>
+    <div class="e">
+      <h3>1 · Segmentos de clientes</h3>
+      <ul>
+        <li>¿Quién es, con industria, tamaño y ciudad?</li>
+        <li>¿Quién usa la herramienta a diario?</li>
+        <li>¿Quién firma el cheque?</li>
+      </ul>
+      <div class="sub"><b>Early adopter</b>¿Qué empresa concreta sería la primera en probarlo, y a quién le pedirían algo el lunes?</div>
+    </div>
+    <div class="k">
+      <h3>7 · Estructura de costos</h3>
+      <ul>
+        <li>¿Qué cuesta entregar una sola operación?</li>
+        <li>¿Cuánto sale convertir a pesos, si aplica?</li>
+        <li>¿Qué margen queda por operación?</li>
+      </ul>
+    </div>
+    <div class="r">
+      <h3>6 · Flujos de ingreso</h3>
+      <ul>
+        <li>¿Quién paga?</li>
+        <li>¿Comisión, suscripción, spread u originación?</li>
+        <li>¿A qué precio, comparado con lo que ya pagan hoy?</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Orden</p>
+  <h2>No de izquierda a derecha</h2>
+  <ol class="steps">
+    <li>Segmentos — industria, tamaño, ciudad, quién paga</li>
+    <li>Problema — tres dolores y la alternativa actual</li>
+    <li>Propuesta de valor — qué cambia la semana que entra</li>
+    <li>Solución — un verbo por dolor</li>
+    <li>Canales — cómo llegan a los primeros diez</li>
+    <li>Ingresos — quién paga y contra qué</li>
+    <li>Costos — una operación, incluido salir a pesos</li>
+    <li>Métricas — dos números del piloto</li>
+    <li>Ventaja injusta — qué no copian en 30 días</li>
+  </ol>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Cómo se contesta</p>
+  <h2>Cada casilla tiene que poder leerse en voz alta</h2>
+  <ul>
+    <li>Si no pueden nombrar industria y ciudad, el segmento todavía no está.</li>
+    <li>Si el dolor no tiene pesos o días, el problema todavía no está.</li>
+    <li>Si no saben quién firma el cheque, el modelo todavía no está.</li>
+    <li>Si no hay alternativa actual, no hay competencia contra la cual cobrar.</li>
+  </ul>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Lo básico de Stellar</p>
+  <h2>Cuenta, activo, ancla, registro</h2>
+  <ol class="steps">
+    <li>Una cuenta envía un activo (por ejemplo USDC) a otra. La red confirma en segundos.</li>
+    <li>El ancla es quien cambia pesos ↔ token. Ahí está el costo que define el margen.</li>
+    <li>El registro sirve cuando varias partes necesitan el mismo hecho verificable.</li>
+    <li>No hay que forzarla. El canvas se llena igual.</li>
+  </ol>
+</article>
+
+<article class="slide">
+  <p class="eyebrow">Taller</p>
+  <h2>Contestar las preguntas, no adornar la página</h2>
+  <ol class="steps">
+    <li>Un escribano. El resto discute.</li>
+    <li>Primero casillas 1 a 4. Después 5 a 9, aunque queden provisionales.</li>
+    <li>Al cierre, las nueve tienen respuesta. Eso es la versión 1.</li>
+  </ol>
+</article>
+
+<script src="deck.js"></script>
+</body>
+</html>

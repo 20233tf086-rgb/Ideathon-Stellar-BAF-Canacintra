@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo entregar · Fork y Pull Request</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+  .git .slide { padding: 3.15rem 2.6rem 1.6rem; justify-content: flex-start; }
+  .git h1 { font-size: clamp(2.4rem, 5vw, 3.5rem); margin-bottom: 0.25rem; }
+  .git .eyebrow { font-size: 1.2rem; }
+  .git .lede {
+    font-size: clamp(1.35rem, 2.3vw, 1.7rem);
+    max-width: none;
+    margin-bottom: 1rem;
+  }
+  .git ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: none;
+    display: grid;
+    gap: 0.48rem;
+    counter-reset: paso;
+  }
+  .git li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.85rem;
+    font-size: clamp(1.45rem, 2.5vw, 1.9rem);
+    line-height: 1.28;
+    margin: 0;
+    align-items: start;
+    max-width: none;
+  }
+  .git li::before {
+    content: counter(paso);
+    counter-increment: paso;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 1.7rem;
+    padding-top: 0.02rem;
+  }
+  .git li > span { min-width: 0; }
+  .git .mono {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    color: var(--gold-light);
+  }
+  .git em { color: var(--ivory-dim); font-style: normal; font-size: 0.9em; }
+</style>
+</head>
+<body class="git">
+<nav class="bar">
+  <a href="index.html">Programa</a>
+  <span class="mid">Entrega · fork y Pull Request</span>
+  <span id="pos"></span>
+</nav>
+
+<article class="slide on">
+  <p class="eyebrow">Desde el navegador · un fork por equipo</p>
+  <h1>Cómo entra su trabajo al repo del ideathon</h1>
+  <p class="lede">El repo que crearon por su cuenta es el cuaderno. El entregable es el Lean Canvas y el pitch, en un Pull Request desde un fork de este repo.</p>
+  <ol>
+    <li><span>Abrir <span class="mono">github.com/MarxMad/Ideathon-Stellar-BAF-Canacintra</span></span></li>
+    <li><span>Arriba a la derecha: <strong>Fork</strong> → <strong>Create fork</strong></span></li>
+    <li><span>La URL debe decir <span class="mono">github.com/SU-USUARIO/Ideathon-Stellar-BAF-Canacintra</span></span></li>
+    <li><span>En ese fork: <strong>Add file</strong> → <strong>Upload files</strong>. Suben <span class="mono">lean-canvas.md</span> y <span class="mono">pitch.md</span> a <span class="mono">ideas/equipo-07-nombre-corto/</span> <em>(minúsculas, guiones, sin acentos)</em></span></li>
+    <li><span><strong>Commit changes</strong></span></li>
+    <li><span><strong>Contribute</strong> → <strong>Open pull request</strong> hacia el repo original</span></li>
+    <li><span>Título: <strong>Equipo 07 — Nombre de la idea</strong></span></li>
+  </ol>
+</article>
+
+<script src="deck.js"></script>
+</body>
+</html>
