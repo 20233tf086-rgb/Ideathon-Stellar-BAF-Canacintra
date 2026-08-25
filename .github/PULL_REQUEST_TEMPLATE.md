@@ -8,7 +8,7 @@
 ---
 
 - [ ] `lean-canvas.md` — nueve bloques, en orden
-- [ ] `pitch.md` — guion de 2:30
+- [ ] `pitch.md` — guion de 5 minutos
 
 | Nombre | GitHub |
 |---|---|

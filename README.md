@@ -87,28 +87,28 @@ Qué le cuesta:
 
 ---
 
-## Pitch (2:30)
+## Pitch (máximo 5 minutos)
 
 Máximo dos personas al frente.
 
 | Tiempo | Qué dicen |
 |---|---|
-| 0:00–0:25 | El problema, con cifra |
-| 0:25–0:45 | El cliente y quién paga |
-| 0:45–1:20 | La solución en tres verbos |
-| 1:20–1:55 | Precio, margen, mercado chico y honesto |
-| 1:55–2:30 | Empresa piloto, qué piden el lunes, riesgo #1 |
+| 0:00–1:00 | El problema, con cifra |
+| 1:00–1:45 | El cliente y quién paga |
+| 1:45–3:00 | La solución en tres verbos |
+| 3:00–4:00 | Precio, margen, mercado chico y honesto |
+| 4:00–5:00 | Empresa piloto, qué piden el lunes, riesgo #1 |
 
 ```markdown
 # Pitch
 
 | Tiempo | Sección | Guion |
 |---|---|---|
-| 0:00–0:25 | Problema | |
-| 0:25–0:45 | Cliente | |
-| 0:45–1:20 | Solución | |
-| 1:20–1:55 | Modelo | |
-| 1:55–2:30 | Piloto | |
+| 0:00–1:00 | Problema | |
+| 1:00–1:45 | Cliente | |
+| 1:45–3:00 | Solución | |
+| 3:00–4:00 | Modelo | |
+| 4:00–5:00 | Piloto | |
 ```
 
 ---
@@ -146,4 +146,4 @@ Se evalúa la hipótesis, no si “encaja” en Stellar.
 | Problema y cliente | 25 |
 | Lean Canvas | 25 |
 | Modelo de negocio | 30 |
-| Pitch (2:30) | 20 |
+| Pitch (máx. 5 min) | 20 |
